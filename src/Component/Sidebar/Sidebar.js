@@ -28,7 +28,6 @@ function Sidebar() {
         }))
       )
     );
-    console.log(setChannels);
   }, []);
   return (
     <div className="sidebar">
