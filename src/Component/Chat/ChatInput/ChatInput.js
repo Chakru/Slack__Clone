@@ -12,13 +12,12 @@ function ChatInput({ channelName, channelId }) {
     e.preventDefault();
 
     if (channelId) {
-      db.collection('rooms').doc(channelId).collection('messages').add({
+      db.collection('channel').doc(channelId).collection('messages').add({
         message: input,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         user: user.displayName,
         userImage: user.photoURL,
       });
-      console.log(user);
     }
     setInput('');
   };
