@@ -1,13 +1,13 @@
 import React from 'react';
 import './Message.css';
-function Message({ message, timestamp, name, userUrl }) {
+function Message({ message, timestamp, user, photoURL }) {
   return (
     <div>
       <div className="message">
-        <img src={userUrl} alt="" />
+        <img src={photoURL} alt="" />
         <div className="message__info">
           <h4>
-            {name}
+            {user}
             <span className="message__timestamp">
               {new Date(timestamp?.toDate()).toUTCString()}
             </span>

@@ -42,13 +42,13 @@ function Chat() {
         </div>
       </div>
       <div className="chat__messages">
-        {channelMessages.map(({ message, name, timestamp, userUrl }) => {
+        {channelMessages.map(({ message, timestamp, photoURL, user }) => {
           return (
             <Message
               message={message}
-              timestamp-={timestamp}
-              name={name}
-              userUrl={userUrl}
+              timestamp={timestamp}
+              photoURL={photoURL}
+              user={user}
             />
           );
         })}
