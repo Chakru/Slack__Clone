@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Message from './Message/Message';
+import ChatInput from './ChatInput/ChatInput';
+import db from '../../firebase';
 import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import './Chat.css';
-import db from '../../firebase';
-import Message from './Message/Message';
+
 function Chat() {
   const { channelId } = useParams();
   const [channelDetails, setChannelDetails] = useState(null);
@@ -24,7 +26,6 @@ function Chat() {
         setChannelMessages(snapshot.docs.map(doc => doc.data()))
       );
   }, [channelId]);
-  console.log(channelMessages);
   return (
     <div className="chat">
       <div className="chat__header">
@@ -52,6 +53,7 @@ function Chat() {
           );
         })}
       </div>
+      <ChatInput channelName={channelDetails?.name} channelId={channelId} />
     </div>
   );
 }

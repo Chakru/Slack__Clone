@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import './App.css';
+import { useStateValue } from './Redux/StateProvider';
 import Login from './Component/Auth/Login';
 import Chat from './Component/Chat/Chat';
 import Header from './Component/Header/Header';
 import Sidebar from './Component/Sidebar/Sidebar';
+import './App.css';
 
 function App() {
-  const [user, setUser] = useState();
+  const [{ user }, dispatch] = useStateValue();
   return (
     <div className="App">
       <Router>

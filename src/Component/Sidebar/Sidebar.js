@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import db from '../../firebase';
+import { useStateValue } from './../../Redux/StateProvider';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import CreateIcon from '@material-ui/icons/Create';
 import InsertCommentIcon from '@material-ui/icons/InsertComment';
@@ -13,11 +15,10 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AddIcon from '@material-ui/icons/Add';
 import SidebarOption from './SidebarOption/SidebarOption';
 import './Sidebar.css';
-import db from '../../firebase';
 
 function Sidebar() {
   const [channels, setChannels] = useState([]);
-
+  const [{ user }] = useStateValue();
   useEffect(() => {
     //Run the code when the component loads.
     db.collection('channel').onSnapshot(snapshot =>
@@ -35,7 +36,7 @@ function Sidebar() {
         <div className="sidebar__info">
           <h2>LocalHost</h2>
           <h3>
-            <FiberManualRecordIcon /> Abhishek Chakravarty
+            <FiberManualRecordIcon /> {user?.displayName}
           </h3>
         </div>
         <CreateIcon />
