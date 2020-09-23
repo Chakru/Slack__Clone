@@ -42,12 +42,12 @@ function Chat() {
         </div>
       </div>
       <div className="chat__messages">
-        {channelMessages.map(({ message, timestamp, photoURL, user }) => {
+        {channelMessages.map(({ message, timestamp, userImage, user }) => {
           return (
             <Message
               message={message}
               timestamp={timestamp}
-              photoURL={photoURL}
+              userImage={userImage}
               user={user}
             />
           );
