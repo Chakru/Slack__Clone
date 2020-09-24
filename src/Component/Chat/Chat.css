@@ -1,6 +1,6 @@
 .chat {
-  flex: 0.7;
-  /* overflow-y: scroll; */
+  flex: 1;
+  overflow-y: scroll;
   padding-bottom: 150px;
 }
 
