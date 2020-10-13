@@ -1,4 +1,4 @@
-<h1 align="center"> Covid-19 Tracker  </h1>
+<h1 align="center"> Slack Clone  </h1>
 
 A clone of `Slack`
 
